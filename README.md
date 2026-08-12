@@ -1,73 +1,157 @@
-# Transcript — YouTube Video Chatbot
+# 🎥 YouTube RAG Chatbot
 
-A Streamlit UI for the RAG pipeline from `YouTube_Chatbot_using_LangChain.ipynb`.
-Paste a YouTube video ID or link, and chat with the video using only its own
-transcript as context.
+An AI-powered YouTube video chatbot that lets users ask questions about a
+YouTube video and receive answers grounded exclusively in the video's
+transcript.
 
-**Pipeline:** transcript (`youtube-transcript-api`) → chunks
-(`RecursiveCharacterTextSplitter`) → embeddings (`sentence-transformers/all-MiniLM-L6-v2`)
-→ vector store (`FAISS`) → similarity search → prompt → Gemini
-(`langchain-google-genai`) → answer, all wired together with LangChain
-Runnables — exactly the notebook's logic, refactored into `rag_pipeline.py`.
+The application combines **LangChain**, **FAISS**, **Hugging Face
+embeddings**, **YouTube Transcript API**, and **Google Gemini** to implement
+a complete Retrieval-Augmented Generation (RAG) pipeline.
 
-## 1. Install
+Instead of sending the entire transcript to the language model, the system
+splits the transcript into smaller chunks, converts them into embeddings,
+retrieves the most relevant chunks for each question, and provides those
+chunks to Gemini as context.
 
-```bash
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
+---
 
-## 2. Add your Google API key
+## 🎬 Live Demo
 
-Get a free key at https://aistudio.google.com/apikey, then either:
+<!-- ============================================================
+     ADD YOUR PROJECT DEMO VIDEO HERE
+     
+     Option 1 — YouTube:
+     Replace YOUR_VIDEO_ID with your YouTube video's ID.
 
-- paste it into the **Google API key** field in the app's sidebar, or
-- copy `.env.example` to `.env` and set `GOOGLE_API_KEY=...` there.
+     Option 2 — GitHub:
+     Upload the video to GitHub and replace the placeholder below
+     with the GitHub-generated video URL.
+     ============================================================ -->
 
-The key is only ever kept in memory for your session — it's never written to disk.
+**▶️ [Watch the Live Project Demo](YOUR_VIDEO_LINK_HERE)**
 
-## 3. Run
+<!-- Example:
+[![YouTube RAG Chatbot Demo](screenshots/demo-thumbnail.png)](YOUR_VIDEO_LINK_HERE)
+-->
 
-```bash
-streamlit run app.py
-```
+---
 
-This opens the app at `http://localhost:8501`.
+## 📸 Project Screenshots
 
-## Using the app
+The following screenshots demonstrate the application's interface,
+video processing workflow, conversational question answering, and
+retrieved transcript sources.
 
-1. Paste a YouTube video ID (e.g. `Gfr50f6ZBvo`) or a full URL into the box
-   and click **Load video**. The app fetches the transcript, splits it into
-   chunks, embeds them, and builds a FAISS index — this takes a few seconds.
-2. Ask questions in the chat box at the bottom. Each answer is grounded only
-   in the transcript; if it's not in there, the assistant says so instead of
-   guessing.
-3. Expand **View sources** under any answer to see the exact transcript
-   chunks that were retrieved for it.
-4. Use **Settings** in the sidebar to change the Gemini model, temperature,
-   transcript language(s), chunk size/overlap, and how many chunks are
-   retrieved per question. Click **Load a different video** to start over.
+### 1. Application Home Screen
 
-## Notes & troubleshooting
+<!-- ============================================================
+     ADD SCREENSHOT HERE
+     Example:
+     ![Application Home Screen](screenshots/home.png)
+     ============================================================ -->
 
-- **"Captions are disabled"** — the video's owner has turned off captions;
-  there's no transcript to build a chatbot from.
-- **"No transcript found in [...]"** — the video doesn't have a transcript in
-  the language code(s) you set. Try adding the video's actual language (e.g.
-  `hi` for Hindi) in Settings → Retrieval & chunking.
-- **First load is slower** — the embedding model (~90MB) downloads once per
-  machine and is cached for every video after that.
-- Gemini model names change over time; if the selected model errors out,
-  check https://ai.google.dev/gemini-api/docs/models for the current list
-  and try another one from the sidebar dropdown.
+![Application Home Screen](screenshots/home.png)
 
-## Project structure
 
-```
-app.py             Streamlit UI
-rag_pipeline.py    Transcript fetch, chunking, embeddings, FAISS, chain (UI-agnostic)
-requirements.txt
-.env.example
-.streamlit/config.toml   Dark theme matching the UI
-```
+### 2. Loading a YouTube Video
+
+<!-- ============================================================
+     ADD SCREENSHOT HERE
+     Replace the filename with your actual screenshot filename.
+     ============================================================ -->
+
+![Loading YouTube Video](screenshots/video-loading.png)
+
+
+### 3. Video Loaded Successfully
+
+<!-- ============================================================
+     ADD SCREENSHOT HERE
+     ============================================================ -->
+
+![Loaded Video](screenshots/video-loaded.png)
+
+
+### 4. Asking Questions About the Video
+
+<!-- ============================================================
+     ADD SCREENSHOT HERE
+     ============================================================ -->
+
+![Chat with YouTube Video](screenshots/chat.png)
+
+
+### 5. Retrieved Transcript Sources
+
+<!-- ============================================================
+     ADD SCREENSHOT HERE
+     This screenshot should ideally show the "View transcript
+     sources" section underneath an answer.
+     ============================================================ -->
+
+![Retrieved Transcript Sources](screenshots/sources.png)
+
+---
+
+## ✨ Key Features
+
+- 🎥 Accepts a YouTube video ID or full YouTube URL
+- 📝 Automatically retrieves the video's transcript
+- ✂️ Splits transcripts into configurable text chunks
+- 🧠 Generates embeddings using Hugging Face
+- 🔎 Stores embeddings in a FAISS vector database
+- 🎯 Retrieves the most relevant transcript chunks for each question
+- 🤖 Uses Google Gemini for grounded answer generation
+- 🔗 Uses LangChain Runnables to build the RAG chain
+- 📚 Displays the transcript sources retrieved for each answer
+- 🌐 Fetches video title, channel, and thumbnail metadata
+- ⚙️ Provides configurable retrieval and generation settings
+- 🔐 Loads the Google API key from `.env` rather than exposing it in the UI
+- 💬 Maintains conversational history during the current session
+- ⚠️ Provides user-friendly errors for unavailable videos, missing
+  transcripts, disabled captions, and model/API failures
+
+---
+
+## 🧠 How It Works
+
+The application follows a complete Retrieval-Augmented Generation workflow:
+
+```text
+                    YouTube Video
+                          │
+                          ▼
+                 Video ID / URL
+                          │
+                          ▼
+                Transcript Retrieval
+                          │
+                          ▼
+                  Text Chunking
+                          │
+                          ▼
+              Hugging Face Embeddings
+                          │
+                          ▼
+                    FAISS Index
+                          │
+                          ▼
+                    User Question
+                          │
+                          ▼
+                Similarity Retrieval
+                          │
+                          ▼
+             Relevant Transcript Chunks
+                          │
+                          ▼
+                  Prompt + Context
+                          │
+                          ▼
+                  Google Gemini
+                          │
+                          ▼
+                  Grounded Answer
+                          │
+                          ▼
+             Retrieved Sources Displayed
