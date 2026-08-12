@@ -47,50 +47,39 @@ retrieved transcript sources.
 <!-- ============================================================
      ADD SCREENSHOT HERE
      Example:
-     ![Application Home Screen](screenshots/home.png)
-     ============================================================ -->
+     <img width="3708" height="1501" alt="Application Home Screen" src="https://github.com/user-attachments/assets/0bc8db7b-c627-4fe0-8a9a-8b12301afcc4" />
 
-![Application Home Screen](screenshots/home.png)
-
-
-### 2. Loading a YouTube Video
-
-<!-- ============================================================
-     ADD SCREENSHOT HERE
-     Replace the filename with your actual screenshot filename.
-     ============================================================ -->
-
-![Loading YouTube Video](screenshots/video-loading.png)
+     ============================================================ --
 
 
-### 3. Video Loaded Successfully
+### 2. Video Loaded Successfully
 
 <!-- ============================================================
-     ADD SCREENSHOT HERE
+     <img width="2349" height="912" alt="Video Loaded Successfully" src="https://github.com/user-attachments/assets/349cbee6-eb66-4424-98c6-3d684384c958" />
+
      ============================================================ -->
 
-![Loaded Video](screenshots/video-loaded.png)
 
-
-### 4. Asking Questions About the Video
+### 3. Asking Questions About the Video
 
 <!-- ============================================================
-     ADD SCREENSHOT HERE
-     ============================================================ -->
+     <img width="2259" height="702" alt="Asking Questions About the Video 1" src="https://github.com/user-attachments/assets/395a4f8b-e79e-4287-85f7-1392e3435992" />
 
-![Chat with YouTube Video](screenshots/chat.png)
+
+     <img width="2216" height="1144" alt="Asking Questions About the Video 2" src="https://github.com/user-attachments/assets/6e659693-da27-45d4-bc6a-4a764cb9e946" />
+
+     ============================================================ -->
 
 
 ### 5. Retrieved Transcript Sources
 
 <!-- ============================================================
-     ADD SCREENSHOT HERE
-     This screenshot should ideally show the "View transcript
-     sources" section underneath an answer.
+<img width="1998" height="1217" alt="Screenshot 2026-08-12 151611" src="https://github.com/user-attachments/assets/26a72c8a-11a5-4409-a0b0-78e66af86983" />
+
+<img width="1881" height="1005" alt="Screenshot 2026-08-12 151629" src="https://github.com/user-attachments/assets/b124847c-9080-4c73-aea2-6403c23f8f0b" />
+
+
      ============================================================ -->
-
-![Retrieved Transcript Sources](screenshots/sources.png)
-
 ---
 
 ## ✨ Key Features
