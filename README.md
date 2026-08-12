@@ -17,7 +17,7 @@ chunks to Gemini as context.
 
 ## 🎬 Live Demo
 
-**▶️ [Watch the Live Project Demo](YOUR_VIDEO_LINK_HERE)**
+**▶️ [Watch the Live Project Demo]("")**
 
 
 ## 📸 Project Screenshots
