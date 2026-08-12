@@ -17,24 +17,8 @@ chunks to Gemini as context.
 
 ## 🎬 Live Demo
 
-<!-- ============================================================
-     ADD YOUR PROJECT DEMO VIDEO HERE
-     
-     Option 1 — YouTube:
-     Replace YOUR_VIDEO_ID with your YouTube video's ID.
-
-     Option 2 — GitHub:
-     Upload the video to GitHub and replace the placeholder below
-     with the GitHub-generated video URL.
-     ============================================================ -->
-
 **▶️ [Watch the Live Project Demo](YOUR_VIDEO_LINK_HERE)**
 
-<!-- Example:
-[![YouTube RAG Chatbot Demo](screenshots/demo-thumbnail.png)](YOUR_VIDEO_LINK_HERE)
--->
-
----
 
 ## 📸 Project Screenshots
 
