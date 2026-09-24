@@ -1,6 +1,6 @@
 # 🎥 YouTube RAG Chatbot
 
-An AI-powered YouTube video chatbot that lets users ask questions about ahjh
+An AI-powered YouTube video chatbot that lets users ask questions about a
 YouTube video and receive answers grounded exclusively in the video's
 transcript.
 
